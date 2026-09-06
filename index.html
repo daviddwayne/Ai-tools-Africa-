@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Tools Africa — AI tools that actually work in Africa</title>
+<meta name="description" content="A working directory of AI tools for African creators, freelancers and small businesses — checked for low data, local payments, and WhatsApp workflows." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F5F0;
+    --bg-alt:#EEEAE0;
+    --bg-card:#FFFFFF;
+    --ink:#181C1F;
+    --ink-dim:#585F63;
+    --ink-faint:#8A9094;
+    --line:#DEDACE;
+    --line-soft:#E8E4D8;
+    --accent:#0E8C82;
+    --accent-dark:#0B6E66;
+    --accent-soft:#E1F3F1;
+    --radius:11px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;
+    line-height:1.45;font-size:15px;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px;}
+
+  header.site{
+    position:sticky;top:0;z-index:30;
+    background:rgba(247,245,240,0.95);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;}
+  .logo{font-family:'Fraunces',serif;font-weight:800;font-size:17px;color:var(--ink);}
+  .logo span{color:var(--accent);}
+  .site-nav{display:flex;gap:22px;font-size:14px;font-weight:600;color:var(--ink-dim);}
+  .site-nav a:hover{color:var(--accent);}
+  .header-cta{
+    font-size:12.5px;font-weight:800;background:var(--accent);color:#fff;
+    padding:8px 14px;border-radius:8px;
+  }
+  @media (max-width:640px){ .site-nav{display:none;} }
+
+  .hero{padding:26px 0 18px;text-align:left;}
+  h1{
+    font-family:'Fraunces',serif;font-weight:800;font-size:clamp(28px,7.5vw,42px);
+    line-height:1.08;letter-spacing:-0.02em;margin:0 0 10px;color:var(--ink);max-width:15ch;
+  }
+  h1 span{color:var(--accent);}
+  .hero p.lead{font-size:14.5px;color:var(--ink-dim);max-width:50ch;margin:0 0 16px;}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;padding:12px 20px;border-radius:9px;
+    font-weight:800;font-size:14px;border:1.5px solid transparent;transition:.12s;
+  }
+  .btn:active{transform:scale(0.96);}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-secondary{border-color:var(--accent);color:var(--accent-dark);background:var(--accent-soft);}
+  .trust-line{
+    display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-faint);font-weight:600;
+  }
+  .trust-line b{color:var(--accent-dark);}
+
+  .stats{
+    display:flex;gap:0;margin:18px 0 6px;border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;background:var(--bg-card);
+  }
+  .stat{
+    flex:1;text-align:center;padding:12px 6px;border-right:1px solid var(--line-soft);
+  }
+  .stat:last-child{border-right:none;}
+  .stat b{
+    display:block;font-family:'Fraunces',serif;font-weight:800;font-size:19px;color:var(--ink);
+  }
+  .stat span{font-size:10.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;font-weight:700;}
+
+  .filters{padding:18px 0 4px;}
+  .chip-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+  .chip-scroll::-webkit-scrollbar{display:none;}
+  .chip{
+    flex-shrink:0;font-size:13px;font-weight:700;padding:8px 15px;border-radius:99px;
+    border:1.5px solid var(--line);color:var(--ink-dim);background:var(--bg-card);
+    white-space:nowrap;cursor:pointer;transition:.15s;
+  }
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+  .directory{padding:16px 0 50px;}
+  .count-bar{
+    font-size:12px;color:var(--ink-faint);font-weight:700;margin:4px 0 12px;
+  }
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  @media (min-width:520px){ .grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));} }
+
+  .card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:12px;display:flex;flex-direction:column;gap:8px;transition:.15s;
+  }
+  .card:hover{border-color:var(--accent);}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+  .cat-tag{
+    font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    color:var(--accent-dark);background:var(--accent-soft);padding:3px 7px;border-radius:5px;
+  }
+  .card h3{font-family:'Fraunces',serif;font-size:14.5px;margin:0;font-weight:700;line-height:1.2;}
+  .card p.desc{font-size:11.5px;color:var(--ink-dim);margin:0;line-height:1.35;}
+
+  .badge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;}
+  .badge{
+    font-size:9px;font-weight:800;text-align:center;padding:5px 2px;border-radius:6px;
+    border:1px solid var(--line-soft);color:var(--ink-faint);background:var(--bg);
+    line-height:1.2;
+  }
+  .badge.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-dark);}
+
+  .card-foot{
+    display:flex;justify-content:flex-end;padding-top:7px;border-top:1px solid var(--line-soft);
+  }
+  .visit{font-size:11.5px;font-weight:800;color:var(--accent-dark);}
+
+  footer{border-top:1px solid var(--line);padding:22px 0;color:var(--ink-faint);font-size:12px;background:var(--bg-alt);}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-row">
+    <div class="logo">AI Tools <span>Africa</span></div>
+    <div class="site-nav">
+      <a href="#tools">Directory</a>
+      <a href="#">Submit a tool</a>
+      <a href="#">About</a>
+    </div>
+    <a href="#" class="header-cta">Submit</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>AI tools that actually work <span>in Africa</span></h1>
+    <p class="lead">A working directory of AI tools for African creators, freelancers and small businesses — built to be useful, not just impressive.</p>
+    <div class="hero-actions">
+      <a href="#tools" class="btn btn-primary">Browse Directory</a>
+      <a href="#" class="btn btn-secondary">Submit a tool</a>
+    </div>
+    <div class="trust-line">✓ Every tool is checked for <b>low data, local payments &amp; WhatsApp workflows</b></div>
+
+    <div class="stats">
+      <div class="stat"><b>35+</b><span>Tools</span></div>
+      <div class="stat"><b>4</b><span>Fit checks</span></div>
+      <div class="stat"><b>4</b><span>Categories</span></div>
+      <div class="stat"><b>Free</b><span>To browse</span></div>
+    </div>
+  </section>
+
+  <section class="filters" id="tools">
+    <div class="chip-scroll">
+      <div class="chip active" data-filter="all">All tools</div>
+      <div class="chip" data-filter="writing">Writing</div>
+      <div class="chip" data-filter="design">Design</div>
+      <div class="chip" data-filter="business">Business</div>
+      <div class="chip" data-filter="video">Video &amp; audio</div>
+    </div>
+  </section>
+
+  <section class="directory">
+    <div class="count-bar" id="countLabel">35 tools</div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 AI Tools Africa</span>
+    <span>Suggest a tool</span>
+  </div>
+</footer>
+
+<script>
+  const tools = [
+    { name:"Claude", cat:"business", catLabel:"Business",
+      desc:"Best for writing, planning, and building things step-by-step.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"ChatGPT", cat:"writing", catLabel:"Writing",
+      desc:"Widely known, works fine on 3G/4G, but free limits hit fast.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Gemini", cat:"writing", catLabel:"Writing",
+      desc:"Free with a Google account most Nigerians already have.",
+      badges:{data:1,wa:0,pay:0,offline:0} },
+    { name:"Grok", cat:"writing", catLabel:"Writing",
+      desc:"Built into X — no extra download if you're already on the app.",
+      badges:{data:1,wa:0,pay:0,offline:0} },
+    { name:"Wan AI", cat:"video", catLabel:"Video",
+      desc:"AI video generation, but heavy on data — best on wifi only.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"CapCut", cat:"video", catLabel:"Video",
+      desc:"Mobile video editor with AI captions and background removal.",
+      badges:{data:1,wa:0,pay:0,offline:1} },
+    { name:"Canva", cat:"design", catLabel:"Design",
+      desc:"Drag-and-drop design with AI image tools and templates.",
+      badges:{data:0,wa:0,pay:1,offline:1} },
+    { name:"WhatsApp Business", cat:"business", catLabel:"Business",
+      desc:"Free messaging with auto-replies, catalogs, quick replies.",
+      badges:{data:1,wa:1,pay:0,offline:0} },
+    { name:"Notion", cat:"business", catLabel:"Business",
+      desc:"All-in-one workspace for notes and client-facing docs.",
+      badges:{data:1,wa:0,pay:0,offline:1} },
+    { name:"Remove.bg", cat:"design", catLabel:"Design",
+      desc:"One-click background removal for product photos.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+
+    { name:"Copy.ai", cat:"writing", catLabel:"Writing",
+      desc:"Quick AI copywriter for captions, emails, and ad text — solid free tier.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Rytr", cat:"writing", catLabel:"Writing",
+      desc:"Lightweight and fast-loading — one of the best writers for slow connections.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Jasper", cat:"writing", catLabel:"Writing",
+      desc:"Powerful long-form writer, but pricing is steep with little free access.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"QuillBot", cat:"writing", catLabel:"Writing",
+      desc:"Free paraphrasing and grammar checks — useful for cleaning up client work.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Sudowrite", cat:"writing", catLabel:"Writing",
+      desc:"Built for storytelling and scripts, but no meaningful free tier.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+
+    { name:"Midjourney", cat:"design", catLabel:"Design",
+      desc:"Best-in-class image generation, but Discord-based and paid only now.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Leonardo.ai", cat:"design", catLabel:"Design",
+      desc:"Generous free daily credits for brand visuals and flyers.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Runway Gen-2", cat:"video", catLabel:"Video",
+      desc:"Powerful text-to-video, but heavy on data and limited free credits.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"HeyGen", cat:"video", catLabel:"Video",
+      desc:"Turns scripts into avatar videos — useful for local-language content, data-heavy.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Clipdrop", cat:"design", catLabel:"Design",
+      desc:"Free tier covers background removal and image cleanup well.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Pika Labs", cat:"video", catLabel:"Video",
+      desc:"Fast animated video generation, free access still limited.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Vectorizer.ai", cat:"design", catLabel:"Design",
+      desc:"Converts logos and photos to clean vector art — light on data, pay-per-use.",
+      badges:{data:1,wa:0,pay:0,offline:0} },
+
+    { name:"Zapier", cat:"business", catLabel:"Business",
+      desc:"Automates lead capture and notifications — free tier covers small workflows.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Make.com", cat:"business", catLabel:"Business",
+      desc:"More generous free tier than Zapier for building automations.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Otter.ai", cat:"business", catLabel:"Business",
+      desc:"Free transcription for client calls — reliable once the call is uploaded.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Tidio", cat:"business", catLabel:"Business",
+      desc:"Free live chat bot for small business websites and stores.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Tome", cat:"business", catLabel:"Business",
+      desc:"Turns an outline into a full slide deck in seconds — free to start.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Scribe", cat:"business", catLabel:"Business",
+      desc:"Auto-generates step-by-step guides from screen recordings — good for SOPs.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+
+    { name:"Murf.ai", cat:"video", catLabel:"Video",
+      desc:"Realistic AI voiceovers, but free trial is limited before paying.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Suno AI", cat:"video", catLabel:"Video",
+      desc:"Generate full songs from text — free daily credits available.",
+      badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Lovo.ai", cat:"video", catLabel:"Video",
+      desc:"Voiceover tool with strong tone control, limited free access.",
+      badges:{data:0,wa:0,pay:0,offline:0} },
+
+    { name:"Replit", cat:"business", catLabel:"Business",
+      desc:"Code and host apps from your phone browser — generous free tier.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"v0 by Vercel", cat:"business", catLabel:"Business",
+      desc:"Generates web interfaces from text prompts — free to start.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Lovable.dev", cat:"business", catLabel:"Business",
+      desc:"Builds full working apps from plain language — good for non-coders.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Supabase AI", cat:"business", catLabel:"Business",
+      desc:"Writes SQL and sets up databases for you — free tier is solid.",
+      badges:{data:1,wa:0,pay:1,offline:0} },
+  ];
+
+  const grid = document.getElementById('grid');
+  const countLabel = document.getElementById('countLabel');
+  const badgeLabels = { data:"Low Data", wa:"WhatsApp", pay:"Local Pay", offline:"Offline" };
+
+  function render(filter){
+    const list = tools.filter(t => filter === "all" || t.cat === filter);
+    countLabel.textContent = list.length + " tools";
+    grid.innerHTML = "";
+    list.forEach(t => {
+      const card = document.createElement('div');
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-top">
+          <h3>${t.name}</h3>
+          <span class="cat-tag">${t.catLabel}</span>
+        </div>
+        <p class="desc">${t.desc}</p>
+        <div class="badge-grid">
+          ${Object.keys(badgeLabels).map(k => `<div class="badge ${t.badges[k] ? 'on' : ''}">${badgeLabels[k]}</div>`).join("")}
+        </div>
+        <div class="card-foot"><a href="#" class="visit">View details →</a></div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  document.querySelectorAll('.chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      render(c.dataset.filter);
+    });
+  });
+
+  render('all');
+</script>
+</body>
+</html>
