@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Tools Africa — AI tools that actually work in Africa</title>
+<meta name="description" content="A working directory of AI tools for African creators, freelancers and small businesses — checked for low data, local payments, and WhatsApp workflows." />
+<meta name="google-site-verification" content="BXUBbDXcLOkYE66N_iuWnMGpO-r_UokshoTah98Nw78" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+  :root{
+    --bg:#F7F5F0;
+    --bg-alt:#EEEAE0;
+    --bg-card:#FFFFFF;
+    --ink:#181C1F;
+    --ink-dim:#585F63;
+    --ink-faint:#8A9094;
+    --line:#DEDACE;
+    --line-soft:#E8E4D8;
+    --accent:#0E8C82;
+    --accent-dark:#0B6E66;
+    --accent-soft:#E1F3F1;
+    --radius:11px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;
+    line-height:1.45;font-size:15px;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px;}
+
+  header.site{
+    position:sticky;top:0;z-index:30;
+    background:rgba(247,245,240,0.95);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;}
+  .logo{font-family:'Fraunces',serif;font-weight:800;font-size:17px;color:var(--ink);}
+  .logo span{color:var(--accent);}
+  .site-nav{display:flex;gap:22px;font-size:14px;font-weight:600;color:var(--ink-dim);}
+  .site-nav a:hover{color:var(--accent);}
+  .header-cta{
+    font-size:12.5px;font-weight:800;background:var(--accent);color:#fff;
+    padding:8px 14px;border-radius:8px;
+  }
+  @media (max-width:640px){ .site-nav{display:none;} }
+
+  .hero{padding:26px 0 18px;text-align:left;}
+  h1{
+    font-family:'Fraunces',serif;font-weight:800;font-size:clamp(28px,7.5vw,42px);
+    line-height:1.08;letter-spacing:-0.02em;margin:0 0 10px;color:var(--ink);max-width:15ch;
+  }
+  h1 span{color:var(--accent);}
+  .hero p.lead{font-size:14.5px;color:var(--ink-dim);max-width:50ch;margin:0 0 16px;}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;padding:12px 20px;border-radius:99px;
+    font-weight:800;font-size:14px;border:1.5px solid transparent;transition:.12s;cursor:pointer;
+  }
+  .btn:active{transform:scale(0.96);}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-secondary{border-color:var(--accent);color:var(--accent-dark);background:var(--accent-soft);}
+  .btn-wa{background:#25D366;color:#fff;border-color:#25D366;}
+  .btn-wa:hover{background:#1EBE5D;}
+  .trust-line{
+    display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-faint);font-weight:600;
+  }
+  .trust-line b{color:var(--accent-dark);}
+
+  .stats{
+    display:flex;gap:0;margin:18px 0 6px;border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;background:var(--bg-card);
+  }
+  .stat{
+    flex:1;text-align:center;padding:12px 6px;border-right:1px solid var(--line-soft);
+  }
+  .stat:last-child{border-right:none;}
+  .stat b{
+    display:block;font-family:'Fraunces',serif;font-weight:800;font-size:19px;color:var(--ink);
+  }
+  .stat span{font-size:10.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.03em;font-weight:700;}
+
+  /* Search & Filters */
+  .controls{padding:18px 0 4px;display:flex;flex-direction:column;gap:12px;}
+  .search-box{
+    width:100%;padding:12px 16px;border-radius:var(--radius);
+    border:1.5px solid var(--line);background:var(--bg-card);
+    font-family:'Manrope',sans-serif;font-size:14px;color:var(--ink);
+    outline:none;transition:.15s;
+  }
+  .search-box:focus{border-color:var(--accent);}
+  .chip-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+  .chip-scroll::-webkit-scrollbar{display:none;}
+  .chip{
+    flex-shrink:0;font-size:13px;font-weight:700;padding:8px 15px;border-radius:99px;
+    border:1.5px solid var(--line);color:var(--ink-dim);background:var(--bg-card);
+    white-space:nowrap;cursor:pointer;transition:.15s;
+  }
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+  .directory{padding:16px 0 50px;}
+  .count-bar{
+    font-size:12px;color:var(--ink-faint);font-weight:700;margin:4px 0 12px;
+  }
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  @media (min-width:520px){ .grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));} }
+
+  .card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:12px;display:flex;flex-direction:column;gap:8px;transition:.15s;
+  }
+  .card:hover{border-color:var(--accent);}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+  .cat-tag{
+    font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    color:var(--accent-dark);background:var(--accent-soft);padding:3px 7px;border-radius:5px;
+  }
+  .card h3{font-family:'Fraunces',serif;font-size:14.5px;margin:0;font-weight:700;line-height:1.2;}
+  .card p.desc{font-size:11.5px;color:var(--ink-dim);margin:0;line-height:1.35;}
+
+  .badge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;}
+  .badge{
+    font-size:9px;font-weight:800;text-align:center;padding:5px 2px;border-radius:6px;
+    border:1px solid var(--line-soft);color:var(--ink-faint);background:var(--bg);
+    line-height:1.2;
+  }
+  .badge.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-dark);}
+
+  .card-foot{
+    display:flex;justify-content:flex-end;padding-top:7px;border-top:1px solid var(--line-soft);
+  }
+  .visit{font-size:11.5px;font-weight:800;color:var(--accent-dark);cursor:pointer;background:none;border:none;padding:0;}
+
+  /* Modal Styling */
+  .modal-overlay{
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);
+    display:none;justify-content:center;align-items:center;z-index:100;padding:16px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);
+    max-width:480px;width:100%;padding:20px;display:flex;flex-direction:column;gap:14px;
+    position:relative;box-shadow:0 12px 30px rgba(0,0,0,0.12);max-height:90vh;overflow-y:auto;
+  }
+  .modal-close{
+    position:absolute;top:14px;right:16px;background:none;border:none;
+    font-size:18px;font-weight:800;color:var(--ink-faint);cursor:pointer;
+  }
+  .modal-title{font-family:'Fraunces',serif;font-size:20px;font-weight:800;margin:0;}
+  .modal-desc{font-size:13.5px;color:var(--ink-dim);line-height:1.45;margin:0;}
+  
+  /* Prompt Block in Modal */
+  .prompt-box{
+    background:var(--bg);border:1px dashed var(--accent);border-radius:8px;
+    padding:12px;display:flex;flex-direction:column;gap:6px;
+  }
+  .prompt-title{font-size:11px;font-weight:800;text-transform:uppercase;color:var(--accent-dark);letter-spacing:.03em;}
+  .prompt-text{font-size:11.5px;color:var(--ink);line-height:1.4;margin:0;font-family:monospace;}
+
+  .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:6px;}
+
+  footer{border-top:1px solid var(--line);padding:22px 0;color:var(--ink-faint);font-size:12px;background:var(--bg-alt);}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-row">
+    <div class="logo">AI Tools <span>Africa</span></div>
+    <div class="site-nav">
+      <a href="#tools">Directory</a>
+      <a href="https://tally.so/r/81Be7z" target="_blank">Submit a tool</a>
+      <a href="#about">About</a>
+    </div>
+    <a href="https://tally.so/r/81Be7z" target="_blank" class="header-cta">Submit</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>AI tools that actually work <span>in Africa</span></h1>
+    <p class="lead">A working directory of AI platforms optimized for African creators, freelancers, and businesses.</p>
+    <div class="hero-actions">
+      <a href="#tools" class="btn btn-primary">Browse details</a>
+      <a href="https://tally.so/r/81Be7z" target="_blank" class="btn btn-secondary">Submit a tool</a>
+      <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20directory%20of%2035%2B%20AI%20tools%20checked%20for%20low%20data%2C%20local%20payments%2C%20and%20WhatsApp%20workflows%20in%20Africa%3A%20https%3A%2F%2Fai-tools-africa.vercel.app" target="_blank" class="btn btn-wa">Share on WhatsApp</a>
+    </div>
+    <div class="trust-line">✓ Every tool is checked for <b>low data, local payments &amp; WhatsApp workflows</b></div>
+
+    <div class="stats">
+      <div class="stat"><b>35+</b><span>Tools</span></div>
+      <div class="stat"><b>4</b><span>Fit checks</span></div>
+      <div class="stat"><b>Free</b><span>To browse</span></div>
+    </div>
+  </section>
+
+  <section class="controls" id="tools">
+    <input type="text" id="searchInput" class="search-box" placeholder="Search tools by name or keyword..." />
+    <div class="chip-scroll">
+      <div class="chip active" data-filter="all">All tools</div>
+      <div class="chip" data-filter="writing">Writing</div>
+      <div class="chip" data-filter="design">Design</div>
+      <div class="chip" data-filter="business">Business</div>
+      <div class="chip" data-filter="video">Video &amp; audio</div>
+    </div>
+  </section>
+
+  <section class="directory">
+    <div class="count-bar" id="countLabel">35 tools</div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="cat-tag" id="modalCat" style="align-self:flex-start;">Category</span>
+    <h2 class="modal-title" id="modalTitle">Tool Name</h2>
+    <p class="modal-desc" id="modalDesc">Detailed description goes here.</p>
+    <div class="badge-grid" id="modalBadges"></div>
+    
+    <div class="prompt-box">
+      <span class="prompt-title">🛡️ Recommended Safety Rule (Trust Layer)</span>
+      <p class="prompt-text">"Before taking any action that sends a message, deletes a file, moves money, or posts publicly, stop and present what you are about to do. Wait for explicit approval."</p>
+    </div>
+
+    <div class="modal-actions">
+      <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Tool Website →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 AI Tools Africa</span>
+    <span>Suggest a tool</span>
+  </div>
+</footer>
+
+<script>
+  const tools = [
+    { name:"Claude", cat:"business", catLabel:"Business", desc:"Best for long-form writing, technical planning, and step-by-step building.", url:"https://claude.ai", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"ChatGPT", cat:"writing", catLabel:"Writing", desc:"Widely accessible general assistant; functional on 3G/4G text workflows. Direct local debit cards frequently fail without Apple Pay or virtual dollar cards.", url:"https://chatgpt.com", badges:{data:1,wa:0,pay:0,offline:0} },
+    { name:"Gemini", cat:"writing", catLabel:"Writing", desc:"Zero-friction access with standard Google accounts; light text consumption.", url:"https://gemini.google.com", badges:{data:1,wa:0,pay:0,offline:0} },
+    { name:"Grok", cat:"writing", catLabel:"Writing", desc:"In-app search and assistant built into X; no standalone app download needed.", url:"https://x.ai", badges:{data:1,wa:0,pay:0,offline:0} },
+    { name:"Wan AI", cat:"video", catLabel:"Video", desc:"Generative video platform; high data consumption, recommended on WiFi.", url:"https://wan.video", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"CapCut", cat:"video", catLabel:"Video", desc:"Mobile-first editor with automated captions and offline clip processing.", url:"https://www.capcut.com", badges:{data:1,wa:0,pay:0,offline:1} },
+    { name:"Canva", cat:"design", catLabel:"Design", desc:"Visual design suite with localized web performance and template caching.", url:"https://www.canva.com", badges:{data:0,wa:0,pay:1,offline:1} },
+    { name:"WhatsApp Business", cat:"business", catLabel:"Business", desc:"Core operating layer for messaging, quick replies, and product catalogs.", url:"https://www.whatsapp.com/business", badges:{data:1,wa:1,pay:0,offline:0} },
+    { name:"Notion", cat:"business", catLabel:"Business", desc:"Lightweight workspace for client docs and operational SOPs.", url:"https://www.notion.so", badges:{data:1,wa:0,pay:0,offline:1} },
+    { name:"Remove.bg", cat:"design", catLabel:"Design", desc:"Fast single-purpose background eraser for ecommerce product photos.", url:"https://www.remove.bg", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Copy.ai", cat:"writing", catLabel:"Writing", desc:"Automated copy generation for social captions and marketing copy.", url:"https://www.copy.ai", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Rytr", cat:"writing", catLabel:"Writing", desc:"Ultra-lightweight copywriter built for fast loads on slow mobile networks.", url:"https://rytr.me", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Jasper", cat:"writing", catLabel:"Writing", desc:"Enterprise content engine; requires stable connection and foreign card billing.", url:"https://www.jasper.ai", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"QuillBot", cat:"writing", catLabel:"Writing", desc:"Low-data paraphraser and grammar tool for polishing client deliverables.", url:"https://quillbot.com", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Sudowrite", cat:"writing", catLabel:"Writing", desc:"Creative story and script assistant; paid tier required for heavy use.", url:"https://www.sudowrite.com", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Midjourney", cat:"design", catLabel:"Design", desc:"High-fidelity visual generation via Discord interface; subscription only.", url:"https://www.midjourney.com", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Leonardo.ai", cat:"design", catLabel:"Design", desc:"Generous free daily image credits for brand assets and marketing materials.", url:"https://leonardo.ai", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Runway Gen-2", cat:"video", catLabel:"Video", desc:"Text-to-video generation tool; heavy payload, best restricted to desktop WiFi.", url:"https://runwayml.com", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"HeyGen", cat:"video", catLabel:"Video", desc:"Avatar video generation for local-language presenter videos; high data use.", url:"https://www.heygen.com", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Clipdrop", cat:"design", catLabel:"Design", desc:"Suite of lightweight AI image editing utilities for quick asset cleanup.", url:"https://clipdrop.co", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Pika Labs", cat:"video", catLabel:"Video", desc:"Short-form animated video generator with web interface access.", url:"https://pika.art", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Vectorizer.ai", cat:"design", catLabel:"Design", desc:"Converts rasters to vector SVG files; minimal data consumption per file.", url:"https://vectorizer.ai", badges:{data:1,wa:0,pay:0,offline:0} },
+    { name:"Zapier", cat:"business", catLabel:"Business", desc:"Workflow automation bridge for connecting forms, sheets, and webhooks.", url:"https://zapier.com", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Make.com", cat:"business", catLabel:"Business", desc:"Visual automation builder with generous free-tier operations for workflows.", url:"https://www.make.com", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Otter.ai", cat:"business", catLabel:"Business", desc:"Automated meeting transcription; process audio files after upload.", url:"https://otter.ai", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Tidio", cat:"business", catLabel:"Business", desc:"Live chat automation for storefronts with customer query triggers.", url:"https://www.tidio.com", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Tome", cat:"business", catLabel:"Business", desc:"AI slide deck builder for rapid client proposals and presentations.", url:"https://tome.app", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Scribe", cat:"business", catLabel:"Business", desc:"Auto-generates step-by-step PDF/Web guides from screen recordings.", url:"https://scribehow.com", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Murf.ai", cat:"video", catLabel:"Video", desc:"Voiceover generator with localized voice profiles; audio export focus.", url:"https://murf.ai", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Suno AI", cat:"video", catLabel:"Video", desc:"Text-to-music engine with daily free generation credits.", url:"https://suno.com", badges:{data:0,wa:0,pay:1,offline:0} },
+    { name:"Lovo.ai", cat:"video", catLabel:"Video", desc:"Voice actor clone and text-to-speech platform for video marketing.", url:"https://lovo.ai", badges:{data:0,wa:0,pay:0,offline:0} },
+    { name:"Replit", cat:"business", catLabel:"Business", desc:"Browser-based development environment that works smoothly on mobile.", url:"https://replit.com", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"v0 by Vercel", cat:"business", catLabel:"Business", desc:"Generates frontend UI code directly from prompt inputs.", url:"https://v0.dev", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Lovable.dev", cat:"business", catLabel:"Business", desc:"Full-stack web application builder operating from plain language descriptions.", url:"https://lovable.dev", badges:{data:1,wa:0,pay:1,offline:0} },
+    { name:"Supabase AI", cat:"business", catLabel:"Business", desc:"SQL script generation and database architecture assistant.", url:"https://supabase.com", badges:{data:1,wa:0,pay:1,offline:0} }
+  ];
+
+  let currentFilter = 'all';
+  let currentSearch = '';
+
+  const grid = document.getElementById('grid');
+  const countLabel = document.getElementById('countLabel');
+  const searchInput = document.getElementById('searchInput');
+  const badgeLabels = { data:"Low Data", wa:"WhatsApp", pay:"Local Pay", offline:"Offline" };
+
+  function render(){
+    const list = tools.filter(t => {
+      const matchesCategory = currentFilter === "all" || t.cat === currentFilter;
+      const matchesSearch = t.name.toLowerCase().includes(currentSearch.toLowerCase()) || 
+                            t.desc.toLowerCase().includes(currentSearch.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+
+    if(countLabel) countLabel.textContent = list.length + " tools found";
+    if(!grid) return;
+    grid.innerHTML = "";
+
+    if(list.length === 0) {
+      grid.innerHTML = `<p style="grid-column:1/-1;color:var(--ink-faint);font-weight:600;">No tools matched your search.</p>`;
+      return;
+    }
+
+    list.forEach(t => {
+      const card = document.createElement('div');
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-top">
+          <h3>${t.name}</h3>
+          <span class="cat-tag">${t.catLabel}</span>
+        </div>
+        <p class="desc">${t.desc}</p>
+        <div class="badge-grid">
+          ${Object.keys(badgeLabels).map(k => `<div class="badge ${t.badges[k] ? 'on' : ''}">${badgeLabels[k]}</div>`).join("")}
+        </div>
+        <div class="card-foot"><button onclick="openModal('${t.name}')" class="visit">View details →</button></div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function openModal(name) {
+    const item = tools.find(t => t.name === name);
+    if(!item) return;
+    document.getElementById('modalTitle').textContent = item.name;
+    document.getElementById('modalCat').textContent = item.catLabel;
+    document.getElementById('modalDesc').textContent = item.desc;
+    document.getElementById('modalLink').href = item.url;
+
+    const badgesContainer = document.getElementById('modalBadges');
+    badgesContainer.innerHTML = Object.keys(badgeLabels).map(k => 
+      `<div class="badge ${item.badges[k] ? 'on' : ''}">${badgeLabels[k]}</div>`
+    ).join("");
+
+    document.getElementById('modalOverlay').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+  }
+
+  document.getElementById('modalOverlay').addEventListener('click', (e) => {
+    if(e.target.id === 'modalOverlay') closeModal();
+  });
+
+  searchInput.addEventListener('input', (e) => {
+    currentSearch = e.target.value;
+    render();
+  });
+
+  document.querySelectorAll('.chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      currentFilter = c.dataset.filter;
+      render();
+    });
+  });
+
+  render();
+</script>
+</body>
+</html>
